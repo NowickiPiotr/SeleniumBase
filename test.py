@@ -24,7 +24,7 @@ class ORM_SWR(unittest.TestCase):
         self.assertEqual(self.driver.title,"Seat capacity")
 
 
-    def test_some(self):
+    def test_learn(self):
         self.driver.execute_script("window.scrollTo(0, 1600)")
         self.my_selenium_method.click(*SeatCapacity.later_services_button)
         #element = WebDriverWait(driver, 10).until(

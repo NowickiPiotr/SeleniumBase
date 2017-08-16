@@ -27,6 +27,7 @@ class ORM_SWR(unittest.TestCase):
     def test_learn_seat(self):
         self.driver.execute_script("window.scrollTo(0, 1600)")
         self.my_selenium_method.click(*SeatCapacity.later_services_button)
+        print("is done")
         #element = WebDriverWait(driver, 10).until(
         #EC.presence_of_element_located((By.CLASS_NAME, "icon-right_arrow"))
         #)
@@ -38,6 +39,8 @@ class ORM_SWR(unittest.TestCase):
         #)
         #driver.find_element_by_class_name("icon-left_arrow").click()
 
+    def test_emptyCase(self):
+        pass
 
 if __name__ == '__main__':
     suite = unittest.TestLoader().loadTestsFromTestCase(ORM_SWR)

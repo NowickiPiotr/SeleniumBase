@@ -39,6 +39,8 @@ class ORM_SWR(unittest.TestCase):
         #)
         #driver.find_element_by_class_name("icon-left_arrow").click()
 
+    def test_emptyCase(self):
+        pass
 
 if __name__ == '__main__':
     suite = unittest.TestLoader().loadTestsFromTestCase(ORM_SWR)

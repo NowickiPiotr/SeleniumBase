@@ -3,28 +3,31 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 
 
-class SeleniumMethods(object):
+class SeleniumMethods():
 
     def __init__(self, driver):
         self.driver = driver
 
-    def _find(self, locator,value):
-        self.driver.find_element(locator,value)
+    def wait_for_element_to_be_clickable(self, value, timing):
+        try:
+            WebDriverWait(self.driver, timing).until(EC.element_to_be_clickable((value)))
+        except:
+            print("time out")
+
+    def element_click(self, value, element, timing):
+        try:
+            WebDriverWait(self.driver, timing).until(EC.element_to_be_clickable((value)))
+        except:
+            print("time out")
+        element.click()
 
     def is_displayed(self, locator,value):
         return self.driver.find_element(locator, value).is_displayed()
 
-    def click(self,locator,value):
-        wait = WebDriverWait(self.driver, 60)
-        wait.until(EC.element_to_be_clickable((locator, value)))
-        self.driver.find_element(locator, value).click()
-
-    def click_list(self,locator,value, element_index):
-        wait = WebDriverWait(self.driver, 60)
-        wait.until(EC.element_to_be_clickable((locator, value)))
-        self.driver.find_elements(locator, value)[element_index].click()
-
-    def type_list_element(self, locator, value, input_text,element_index=0):
-        wait = WebDriverWait(self.driver, 60)
-        wait.until(EC.visibility_of_element_located((locator, value)))
-        self.driver.find_elements(locator, value)[element_index].send_keys(input_text)
+    # todo: rebuild
+    # def element_on_list_click(self,value, element, element_index,timing):
+    #     try:
+    #         WebDriverWait(self.driver, timing).until(EC.element_to_be_clickable((value)))
+    #     except:
+    #         print("time out")
+    #     element[element_index].click()
